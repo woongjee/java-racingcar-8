@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 import racingcar.model.Car;
 
@@ -24,5 +25,16 @@ public class RaceService {
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .toList();
+    }
+
+    public void race(List<Car> cars) {
+        for(Car car : cars) {
+            int randomValue = generateRandomValue();
+            car.move(randomValue);
+        }
+    }
+
+    private int generateRandomValue() {
+        return Randoms.pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
     }
 }
