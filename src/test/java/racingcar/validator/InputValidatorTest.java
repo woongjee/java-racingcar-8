@@ -22,4 +22,13 @@ public class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 5자 이하여야 합니다.");
     }
+
+    @Test
+    void emptyCarName(){
+        List<String> carNames = Arrays.asList("pobi", "");
+
+        assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름이 비어있습니다.");
+    }
 }
