@@ -49,4 +49,11 @@ public class InputValidatorTest {
         assertThatCode(() -> InputValidator.validateCarNames(carNames))
                 .doesNotThrowAnyException();
     }
+
+    @Test
+    void tryCountIsNotNumber(){
+        assertThatThrownBy(() -> InputValidator.validateTryCountInput("abc"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도 횟수는 양의 정수여야 합니다.");
+    }
 }
