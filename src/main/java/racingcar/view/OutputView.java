@@ -30,4 +30,12 @@ public class OutputView {
         }
         System.out.println(WINNER_PREFIX + String.join(WINNER_DELIMITER, winners));
     }
+
+    public void printError(String message) {
+        System.out.println(message);
+    }
+
+    public void printNewLine(){
+        System.out.println();
+    }
 }
