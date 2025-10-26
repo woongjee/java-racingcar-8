@@ -52,7 +52,7 @@ public class InputValidatorTest {
 
     @Test
     void tryCountIsNotNumber(){
-        assertThatThrownBy(() -> InputValidator.validateTryCountInputIsNumber("abc"))
+        assertThatThrownBy(() -> InputValidator.validateTryCountIsNumber("abc"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 양의 정수여야 합니다.");
     }
@@ -62,5 +62,11 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> InputValidator.validateTryCountInput("0"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 양의 정수여야 합니다.");
+    }
+
+    @Test
+    void validTryCount(){
+        assertThatCode(() -> InputValidator.validateTryCountInput("5"))
+                .doesNotThrowAnyException();
     }
 }
