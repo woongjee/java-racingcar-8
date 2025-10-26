@@ -1,11 +1,24 @@
 package racingcar.validator;
 
+import java.util.List;
+
 public class InputValidator {
     private static final String EMPTY_INPUT_ERROR = "입력값이 비어있습니다.";
-
+    private static final int MAX_CAR_NAME_LENGTH = 5;
+    private static final String INVALID_CAR_NAME_LENGTH_ERROR = "자동차 이름은 5자 이하여야 합니다.";
     public static void validateCarNamesInput(String input) {
         if(input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(EMPTY_INPUT_ERROR);
+        }
+    }
+
+    public static void validateCarNames(List<String> carNames) {
+        validateCarNameLength(carNames);
+    }
+
+    private static void validateCarNameLength(List<String> carNames) {
+        if(carNames.stream().anyMatch(name -> name.length() > MAX_CAR_NAME_LENGTH)) {
+            throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH_ERROR);
         }
     }
 }
