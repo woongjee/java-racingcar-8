@@ -22,4 +22,15 @@ public class CarTest {
 
         assertThat(car.getPosition()).isEqualTo(0);
     }
+
+    @Test
+    void moveMultipleTimes(){
+        Car car = new Car("test");
+
+        car.move(4);
+        car.move(5);
+        car.move(9);
+
+        assertThat(car.getPosition()).isEqualTo(3);
+    }
 }
