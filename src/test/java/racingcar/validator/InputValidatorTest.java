@@ -31,4 +31,13 @@ public class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름이 비어있습니다.");
     }
+
+    @Test
+    void duplicateCarNames(){
+        List<String> carNames = Arrays.asList("pobi", "pobi");
+
+        assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
 }
