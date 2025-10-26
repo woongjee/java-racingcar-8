@@ -52,7 +52,7 @@ public class InputValidatorTest {
 
     @Test
     void tryCountIsNotNumber(){
-        assertThatThrownBy(() -> InputValidator.validateTryCountInput("abc"))
+        assertThatThrownBy(() -> InputValidator.validateTryCountInputIsNumber("abc"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 양의 정수여야 합니다.");
     }

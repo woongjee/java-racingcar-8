@@ -43,7 +43,7 @@ public class InputValidator {
         }
     }
 
-    public static void validateTryCountInput(String input) {
+    public static void validateTryCountInputIsNumber(String input) {
         try{
             Integer.parseInt(input.trim());
         } catch(NumberFormatException e) {
