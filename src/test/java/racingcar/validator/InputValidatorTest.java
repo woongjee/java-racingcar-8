@@ -56,4 +56,11 @@ public class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 양의 정수여야 합니다.");
     }
+
+    @Test
+    void tryCountIsNotPositive(){
+        assertThatThrownBy(() -> InputValidator.validateTryCountInput("0"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도 횟수는 양의 정수여야 합니다.");
+    }
 }
