@@ -1,5 +1,6 @@
 package racingcar.validator;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.Arrays;
@@ -39,5 +40,13 @@ public class InputValidatorTest {
         assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
+    }
+
+    @Test
+    void validCarNames(){
+        List<String> carNames = Arrays.asList("pobi", "woni");
+
+        assertThatCode(() -> InputValidator.validateCarNames(carNames))
+                .doesNotThrowAnyException();
     }
 }
