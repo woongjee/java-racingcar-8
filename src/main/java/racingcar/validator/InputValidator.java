@@ -43,10 +43,25 @@ public class InputValidator {
         }
     }
 
-    public static void validateTryCountInputIsNumber(String input) {
+    public static void validateTryCountIsNumber(String input) {
         try{
             Integer.parseInt(input.trim());
         } catch(NumberFormatException e) {
+            throw new IllegalArgumentException(INVALID_TRY_COUNT_ERROR);
+        }
+    }
+
+    public static void validateTryCountInput(String input) {
+        if(input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException(EMPTY_INPUT_ERROR);
+        }
+        validateTryCountIsNumber(input);
+        validateTryCountIsPositive(input);
+    }
+
+    private static void validateTryCountIsPositive(String input) {
+        int tryCount = Integer.parseInt(input.trim());
+        if(tryCount <= 0) {
             throw new IllegalArgumentException(INVALID_TRY_COUNT_ERROR);
         }
     }
