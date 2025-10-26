@@ -42,4 +42,17 @@ public class RaceServiceTest {
         List<String> winners = raceService.findWinners(cars);
         assertThat(winners).containsExactlyInAnyOrder("pobi", "woni");
     }
+
+    @Test
+    void race(){
+        RaceService raceService = new RaceService();
+        List<Car> cars = Arrays.asList(
+                new Car("pobi"),
+                new Car("woni")
+        );
+
+        raceService.race(cars);
+
+        assertThat(cars).allMatch(car -> car.getPosition() >= 0);
+    }
 }
