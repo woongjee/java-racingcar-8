@@ -33,4 +33,11 @@ public class CarTest {
 
         assertThat(car.getPosition()).isEqualTo(3);
     }
+
+    @Test
+    void getName(){
+        Car car = new Car("test");
+
+        assertThat(car.getName()).isEqualTo("test");
+    }
 }
