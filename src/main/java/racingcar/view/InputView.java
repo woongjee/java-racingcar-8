@@ -10,7 +10,7 @@ public class InputView {
     private static final String DELIMITER = ",";
     private static final String TRY_COUNT_INPUT_MESSAGE = "시도할 횟수는 몇 회인가요?";
 
-    public List<String> readCarNames(){
+    public List<String> readCarNames() {
         System.out.println(CAR_NAME_INPUT_MESSAGE);
         String input = Console.readLine();
         InputValidator.validateCarNamesInput(input);
@@ -20,14 +20,14 @@ public class InputView {
         return carNames;
     }
 
-    public int readTryCount(){
+    public int readTryCount() {
         System.out.println(TRY_COUNT_INPUT_MESSAGE);
         String input = Console.readLine();
         InputValidator.validateTryCountInput(input);
         return Integer.parseInt(input);
     }
 
-    public List<String> parseCarNames(String input){
+    public List<String> parseCarNames(String input) {
         return Arrays.stream(input.split(DELIMITER))
                 .map(String::trim)
                 .toList();

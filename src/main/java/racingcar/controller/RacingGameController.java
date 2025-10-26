@@ -9,14 +9,14 @@ public class RacingGameController {
     private final OutputView outputView;
     private final RaceController raceController;
 
-    public RacingGameController(){
+    public RacingGameController() {
         inputView = new InputView();
         outputView = new OutputView();
         raceController = new RaceController();
     }
 
-    public void run(){
-        try{
+    public void run() {
+        try {
             List<String> carNames = inputView.readCarNames();
             int tryCount = inputView.readTryCount();
 
@@ -27,14 +27,14 @@ public class RacingGameController {
 
             List<String> winners = raceController.getWinners();
             outputView.printWinners(winners);
-        } catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             outputView.printError(e.getMessage());
             throw e;
         }
     }
 
-    private void executeRace(int tryCount){
-        for(int i = 0; i < tryCount; i++){
+    private void executeRace(int tryCount) {
+        for (int i = 0; i < tryCount; i++) {
             raceController.race();
             outputView.printRaceStatus(raceController.getCars());
             outputView.printNewLine();

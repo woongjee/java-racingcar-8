@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class CarTest {
     @Test
-    void moveForward(){
+    void moveForward() {
         Car car = new Car("test");
 
         car.move(4);
@@ -15,7 +15,7 @@ public class CarTest {
     }
 
     @Test
-    void stop(){
+    void stop() {
         Car car = new Car("test");
 
         car.move(3);
@@ -24,7 +24,7 @@ public class CarTest {
     }
 
     @Test
-    void moveMultipleTimes(){
+    void moveMultipleTimes() {
         Car car = new Car("test");
 
         car.move(4);
@@ -35,7 +35,7 @@ public class CarTest {
     }
 
     @Test
-    void getName(){
+    void getName() {
         Car car = new Car("test");
 
         assertThat(car.getName()).isEqualTo("test");

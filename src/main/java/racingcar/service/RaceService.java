@@ -28,7 +28,7 @@ public class RaceService {
     }
 
     public void race(List<Car> cars) {
-        for(Car car : cars) {
+        for (Car car : cars) {
             int randomValue = generateRandomValue();
             car.move(randomValue);
         }

@@ -13,7 +13,7 @@ public class InputValidator {
     private static final String INVALID_TRY_COUNT_ERROR = "시도 횟수는 양의 정수여야 합니다.";
 
     public static void validateCarNamesInput(String input) {
-        if(input == null || input.trim().isEmpty()) {
+        if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(EMPTY_INPUT_ERROR);
         }
     }
@@ -25,34 +25,34 @@ public class InputValidator {
     }
 
     private static void validateCarNameLength(List<String> carNames) {
-        if(carNames.stream().anyMatch(name -> name.length() > MAX_CAR_NAME_LENGTH)) {
+        if (carNames.stream().anyMatch(name -> name.length() > MAX_CAR_NAME_LENGTH)) {
             throw new IllegalArgumentException(INVALID_CAR_NAME_LENGTH_ERROR);
         }
     }
 
     private static void validateCarNamesNotEmpty(List<String> carNames) {
-        if(carNames.stream().anyMatch(String::isEmpty)) {
+        if (carNames.stream().anyMatch(String::isEmpty)) {
             throw new IllegalArgumentException(EMPTY_CAR_NAME_ERROR);
         }
     }
 
     private static void validateNoDuplicateNames(List<String> carNames) {
         Set<String> uniqueNames = new HashSet<>(carNames);
-        if(uniqueNames.size() != carNames.size()) {
+        if (uniqueNames.size() != carNames.size()) {
             throw new IllegalArgumentException(DUPLICATE_CAR_NAME_ERROR);
         }
     }
 
     public static void validateTryCountIsNumber(String input) {
-        try{
+        try {
             Integer.parseInt(input.trim());
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException(INVALID_TRY_COUNT_ERROR);
         }
     }
 
     public static void validateTryCountInput(String input) {
-        if(input == null || input.trim().isEmpty()) {
+        if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException(EMPTY_INPUT_ERROR);
         }
         validateTryCountIsNumber(input);
@@ -61,7 +61,7 @@ public class InputValidator {
 
     private static void validateTryCountIsPositive(String input) {
         int tryCount = Integer.parseInt(input.trim());
-        if(tryCount <= 0) {
+        if (tryCount <= 0) {
             throw new IllegalArgumentException(INVALID_TRY_COUNT_ERROR);
         }
     }

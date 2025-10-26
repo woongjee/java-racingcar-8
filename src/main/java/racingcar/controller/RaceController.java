@@ -9,23 +9,23 @@ public class RaceController {
     private final RaceService raceService;
     private List<Car> cars;
 
-    public RaceController(){
+    public RaceController() {
         this.raceService = new RaceService();
     }
 
-    public void initializeCars(List<String> carNames){
+    public void initializeCars(List<String> carNames) {
         this.cars = CarFactory.createCars(carNames);
     }
 
-    public void race(){
+    public void race() {
         raceService.race(cars);
     }
 
-    public List<Car> getCars(){
+    public List<Car> getCars() {
         return cars;
     }
 
-    public List<String> getWinners(){
+    public List<String> getWinners() {
         return raceService.findWinners(cars);
     }
 }

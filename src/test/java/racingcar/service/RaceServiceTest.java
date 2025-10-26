@@ -10,7 +10,7 @@ import racingcar.model.Car;
 
 public class RaceServiceTest {
     @Test
-    void findSingleWinner(){
+    void findSingleWinner() {
         RaceService raceService = new RaceService();
         Car car1 = new Car("pobi");
         Car car2 = new Car("woni");
@@ -26,7 +26,7 @@ public class RaceServiceTest {
     }
 
     @Test
-    void findMultipleWinners(){
+    void findMultipleWinners() {
         RaceService raceService = new RaceService();
         Car car1 = new Car("pobi");
         Car car2 = new Car("woni");
@@ -44,7 +44,7 @@ public class RaceServiceTest {
     }
 
     @Test
-    void race(){
+    void race() {
         RaceService raceService = new RaceService();
         List<Car> cars = Arrays.asList(
                 new Car("pobi"),

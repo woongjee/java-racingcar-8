@@ -10,22 +10,22 @@ public class OutputView {
     private static final String WINNER_PREFIX = "최종 우승자 : ";
     private static final String WINNER_DELIMITER = ", ";
 
-    public void printReslutHeader(){
+    public void printReslutHeader() {
         System.out.println(RESULT_HEADER);
     }
 
-    public void printRaceStatus(List<Car> cars){
-        for(Car car : cars){
+    public void printRaceStatus(List<Car> cars) {
+        for (Car car : cars) {
             printCarStatus(car);
         }
     }
 
-    private void printCarStatus(Car car){
+    private void printCarStatus(Car car) {
         System.out.println(car.getName() + NAME_POSITION_SEPARATOR + POSITION_MARKER.repeat(car.getPosition()));
     }
 
-    public void printWinners(List<String> winners){
-        if(winners.isEmpty()){
+    public void printWinners(List<String> winners) {
+        if (winners.isEmpty()) {
             return;
         }
         System.out.println(WINNER_PREFIX + String.join(WINNER_DELIMITER, winners));
@@ -35,7 +35,7 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public void printNewLine(){
+    public void printNewLine() {
         System.out.println();
     }
 }

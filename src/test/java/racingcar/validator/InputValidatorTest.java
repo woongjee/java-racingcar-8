@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 
 public class InputValidatorTest {
     @Test
-    void emptyInput(){
+    void emptyInput() {
         assertThatThrownBy(() -> InputValidator.validateCarNamesInput(""))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력값이 비어있습니다.");
     }
 
     @Test
-    void carNameLengthExceedsLimit(){
+    void carNameLengthExceedsLimit() {
         List<String> carNames = Arrays.asList("pobi", "woniii");
 
         assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
@@ -25,7 +25,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void emptyCarName(){
+    void emptyCarName() {
         List<String> carNames = Arrays.asList("pobi", "");
 
         assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
@@ -34,7 +34,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void duplicateCarNames(){
+    void duplicateCarNames() {
         List<String> carNames = Arrays.asList("pobi", "pobi");
 
         assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
@@ -43,7 +43,7 @@ public class InputValidatorTest {
     }
 
     @Test
-    void validCarNames(){
+    void validCarNames() {
         List<String> carNames = Arrays.asList("pobi", "woni");
 
         assertThatCode(() -> InputValidator.validateCarNames(carNames))
@@ -51,21 +51,21 @@ public class InputValidatorTest {
     }
 
     @Test
-    void tryCountIsNotNumber(){
+    void tryCountIsNotNumber() {
         assertThatThrownBy(() -> InputValidator.validateTryCountIsNumber("abc"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 양의 정수여야 합니다.");
     }
 
     @Test
-    void tryCountIsNotPositive(){
+    void tryCountIsNotPositive() {
         assertThatThrownBy(() -> InputValidator.validateTryCountInput("0"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도 횟수는 양의 정수여야 합니다.");
     }
 
     @Test
-    void validTryCount(){
+    void validTryCount() {
         assertThatCode(() -> InputValidator.validateTryCountInput("5"))
                 .doesNotThrowAnyException();
     }
