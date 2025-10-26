@@ -24,4 +24,22 @@ public class RaceServiceTest {
 
         assertThat(winners).containsExactly("pobi");
     }
+
+    @Test
+    void findMultipleWinners(){
+        RaceService raceService = new RaceService();
+        Car car1 = new Car("pobi");
+        Car car2 = new Car("woni");
+        Car car3 = new Car("jun");
+
+        car1.move(4);
+        car1.move(4);
+        car2.move(4);
+        car2.move(4);
+        car3.move(4);
+
+        List<Car> cars = Arrays.asList(car1, car2, car3);
+        List<String> winners = raceService.findWinners(cars);
+        assertThat(winners).containsExactlyInAnyOrder("pobi", "woni");
+    }
 }
